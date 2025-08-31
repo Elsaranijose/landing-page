@@ -33,6 +33,8 @@ document.querySelectorAll(".modal .close-btn").forEach(btn => {
   });
 });
 
+
+
 // Close when clicking outside modal
 window.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal")) {
