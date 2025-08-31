@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVF Bella Vista Apartment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <img src="apartment.png" alt="SVF Bella Vista Apartment" class="apartment-img">
+
+    <h2>SVF Bella Vista Apartment</h2>
+    <p class="location">Ambattur OT, Thiruvengada Nagar</p>
+    <p><strong>Flat:</strong> 950 & 1200 sqft | <strong>2 & 3 BHK</strong></p>
+    <p><strong>Price:</strong> ₹47.5 Lakhs*</p>
+
+    <div class="buttons">
+      <button id="readBtn" onclick="toggleDetails()" class="btn blue">Read More</button>
+      <button onclick="openFloorPlan()" class="btn green">Floor Plan</button>
+      <button onclick="showNumbers()" class="btn red">Call Now</button>
+    </div>
+
+    <!-- Hidden details -->
+    <div id="more-details" class="hidden">
+      <h3>Amenities</h3>
+      <ul>
+        <li>Lift</li>
+        <li>Switches & Lights (Mobile Connected)</li>
+        <li>Video Coverage & CCTV</li>
+        <li>Outer Gate & Door Locks</li>
+        <li>Metro & Drainage Water</li>
+        <li>Covered Car Parking</li>
+        <li>Gas Pipeline</li>
+        <li>Solar Energy</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal for Floor Plan -->
+  <div id="floorPlanModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeFloorPlan()">&times;</span>
+      <img src="floorplan.jpg" alt="Floor Plan" class="floorplan-img">
+    </div>
+  </div>
+
+  <!-- Modal for Call Now -->
+  <div id="callModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeNumbers()">&times;</span>
+      <h3>Call Us</h3>
+      <p>📞 94448 92265</p>
+      <p>📞 73585 28262</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
