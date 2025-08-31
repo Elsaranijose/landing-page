@@ -1,41 +1,58 @@
-// Toggle Read More / Read Less
-function toggleDetails() {
-  const details = document.getElementById("more-details");
-  const btn = document.getElementById("readBtn");
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('toggle-details-btn');
+  const moreDetails = document.getElementById('more-details');
+  const modal = document.getElementById('call-modal');
+  const callBtn = document.getElementById('call-now-btn');
+  const closeBtn = document.querySelector('.close-btn');
 
-  if (details.classList.contains("hidden")) {
-    details.classList.remove("hidden");
-    btn.textContent = "Read Less";
-  } else {
-    details.classList.add("hidden");
-    btn.textContent = "Read More";
+  // Read More / Read Less
+  toggleBtn.addEventListener('click', function() {
+    const isHidden = moreDetails.style.display === 'none' || moreDetails.style.display === '';
+    if (isHidden) {
+      moreDetails.style.display = 'block';
+      toggleBtn.textContent = 'Read Less';
+    } else {
+      moreDetails.style.display = 'none';
+      toggleBtn.textContent = 'Read More';
+    }
+  });
+
+  // Floor Plan modal
+const floorPlanBtn = document.querySelector(".btn-floor-plan");
+const floorPlanModal = document.getElementById("floorplan-modal");
+
+floorPlanBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  floorPlanModal.style.display = "block";
+});
+
+// Close when clicking the X
+document.querySelectorAll(".modal .close-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.closest(".modal").style.display = "none";
+  });
+});
+
+// Close when clicking outside modal
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
   }
-}
+});
 
-// Floor Plan Modal
-function openFloorPlan() {
-  document.getElementById("floorPlanModal").style.display = "block";
-}
-function closeFloorPlan() {
-  document.getElementById("floorPlanModal").style.display = "none";
-}
 
-// Call Now Modal
-function showNumbers() {
-  document.getElementById("callModal").style.display = "block";
-}
-function closeNumbers() {
-  document.getElementById("callModal").style.display = "none";
-}
+  // Call Now Modal
+  callBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
 
-// Close modal on outside click
-window.onclick = function(event) {
-  const floorModal = document.getElementById("floorPlanModal");
-  const callModal = document.getElementById("callModal");
-  if (event.target === floorModal) {
-    floorModal.style.display = "none";
-  }
-  if (event.target === callModal) {
-    callModal.style.display = "none";
-  }
-}
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
